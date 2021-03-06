@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>The BookSTEM - Textbooks</title>
+
+    <!-- Latest compiled and minified CSS -->
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <!-- Latest compiled and minified JavaScript -->
+ 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+
+  <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">{{>navbar}}</nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+      <h1 class="display-3">Orders</h1>
+      <p class="lead">BookSTEM's order database</p>
+
+      <!-- Page Features -->
+      <div class="row text-center"></div>
+
+    </header>
+
+  <!-- /.container -->
+
+<!-- /.container -->
+  <h2 class="display-5">Orders</h1>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Creation Date</th>
+        <th scope="col">Arrival Date</th>
+        <th scope="col">Purchased Items</th>
+        <th scope="col">Status</th>
+        <th scope="col">Payment Method</th>
+        <th scope="col">Total Items</th>
+        <th scope="col">Customer ID</th>
+      </tr>
+    </thead>
+    <tbody>
+        {{#each orders}}
+        <td>{{order_ID}}</td>
+        <td>{{creation_date}}</td>
+        <td>{{arrival_date}}</td>
+        <td>{{purchased_items}}</td>
+        <td>{{status}}</td>
+        <td>{{payment_method}}</td>
+        <td>{{total_items}}</td>
+        <td>{{customer}}</td>
+        <td><button class="btn btn-primary"> Delete </button></td>
+    </tbody>
+    {{/each}}
+  </table>
+
+    <p><br /><br /></p>
+
+
+
+    <h2>Add a New Order</h2>
+<p>Fill each field to add an order to the database.</p>
+<form id="addOrder" action="/orders" method="post">
+    <table>
+        <tr>
+            <td>
+                Purchased Items:
+            </td>
+            <td><input type="text" name="pi"></input></td>
+        </tr>
+        <tr>
+            <td>
+                Status: 
+            </td>
+            <td><input type="text" name="status"></td>
+        </tr>
+        <tr>
+            <td>
+                Payment Method: 
+            </td>
+            <td><input type="text" name="pm"></td>
+        </tr>
+        <tr>
+            <td>
+                Total Items: 
+            </td>
+            <td><input type="text" name="ti"></td>
+        </tr>
+        <tr>
+            <td>
+                Customer: 
+            </td>
+            <td>
+                <select name="customer">
+                {{#each customers}}
+                <option value= "{{customer_ID}}" >{{first_name}} {{last_name}}</option>
+                {{/each}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+            </td>
+        </tr>
+        
+    </table>
+</form>
+
+<p><br /><br /></p>

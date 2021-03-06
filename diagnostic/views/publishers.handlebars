@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>The BookSTEM - Textbooks</title>
+
+    <!-- Latest compiled and minified CSS -->
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <!-- Latest compiled and minified JavaScript -->
+ 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+
+  <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">{{>navbar}}</nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+      <h1 class="display-3">Publishers</h1>
+      <p class="lead">BookSTEM's publisher database</p>
+
+      <!-- Page Features -->
+      <div class="row text-center"></div>
+
+    </header>
+
+  <!-- /.container -->
+
+<!-- /.container -->
+  <h2 class="display-5">Publisher</h1>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Address</th>
+      </tr>
+    </thead>
+    <tbody>
+        {{#each publishers}}
+        <td>{{publisher_ID}}</td>
+        <td>{{company_name}}</td>
+        <td>{{phone}}</td>
+        <td>{{address}}</td>
+        <td><button class="btn btn-primary"> Delete </button></td>
+    </tbody>
+    {{/each}}
+  </table>
+
+    <p><br /><br /></p>
+
+
+
+    <h2>Add a New Publisher</h2>
+<p>Fill each field to add a publisher to the database.</p>
+<form id="addPublisher" action="/publishers" method="post">
+    <table>
+        <tr>
+            <td>
+                Company Name:
+            </td>
+            <td><input type="text" name="cn"></input></td>
+        </tr>
+        <tr>
+            <td>
+                Phone Number: 
+            </td>
+            <td><input type="text" name="phone"></td>
+        </tr>
+        <tr>
+            <td>
+                Address: 
+            </td>
+            <td><input type="text" name="address"></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+            </td>
+        </tr>
+        
+    </table>
+</form>
+
+<p><br /><br /></p>
